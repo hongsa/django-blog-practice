@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>{{post.title}}</h1>
+
+            {% if post.photo %}
+            <img src="{{post.photo.url}}">
+            {% endif %}
+
+
+            {{post.content|linebreaks}}
+            <hr>
+            <a href="{% url "blog:post_edit" post.pk %}" class="btn btn-primary">수정</a>
+            <a href="{% url "blog:post_delete" post.pk %}" class="btn btn-danger">삭제</a>
+            <br>
+            {{hello}}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
